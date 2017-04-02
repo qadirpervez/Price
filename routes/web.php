@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'web'], function(){
+  Route::group(['prefix' => 'admin'], function(){
+    Route::get('search', 'AdminController@search')->name('admin.search');
+    Route::resource('product', 'ProductController');
+    Route::get('category/{category}/products', 'AdminController@categoryProducts')->name('category.products');
+    Route::resource('category', 'CategoryController');
+    Route::post('seller', 'SellerController@store')->name('seller.store');
+    Route::put('seller/{seller}', 'SellerController@update')->name('seller.update');
+    Route::delete('seller{seller}', 'SellerController@destroy')->name('seller.destroy');
+    Route::get('/', 'AdminController@index')->name('admin');
+  });
+  Route::get('/', function () {
+      return view('welcome');
+  });
 
-Route::get('/', function () {
-    return view('welcome');
 });
