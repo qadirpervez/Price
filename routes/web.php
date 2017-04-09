@@ -24,5 +24,8 @@ Route::group(['middleware' => 'web'], function(){
   Route::get('/', function () {
       return view('welcome');
   });
+  Route::get('/login', 'LoginController@create')->name('loginPage');
+  Route::post('/login', 'LoginController@store')->name('login');
+  Route::get('/logout', 'LoginController@destroy')->name('logout');
 
 });
