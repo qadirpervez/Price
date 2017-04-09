@@ -11,7 +11,8 @@ class AdminController extends Controller
       $this->middleware('auth');
     }
     public function index(){
-      return view('admin.dashboard');
+      $products = Product::paginate(12);
+      return view('admin.dashboard')->withProducts($products);
     }
     public function categoryProducts($id){
       //find all products

@@ -34,19 +34,19 @@
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li class="active">
+            <li class="{{ Request::path() == 'admin' ? 'active' : '' }}">
                 <a href="{{ route('admin') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
-            <li>
+            <li class="{{ Request::path() == 'admin/category/create' ? 'active' : '' }}">
                 <a href="{{ route('category.create') }}"><i class="fa fa-fw fa-th-list"></i>Create Category</a>
             </li>
-            <li>
+            <li class="{{ Request::path() == 'admin/category' ? 'active' : '' }}">
                 <a href="{{ route('category.index') }}"><i class="fa fa-fw fa-list"></i>List Categories</a>
             </li>
-            <li>
+            <li class="{{ Request::path() == 'admin/product/create' ? 'active' : '' }}">
                 <a href="{{ route('product.create') }}"><i class="fa fa-fw fa-plus"></i>Add New Product </a>
             </li>
-            <li>
+            <li class="{{ Request::path() == 'admin/product' ? 'active' : '' }}">
                 <a href="{{ route('product.index') }}"><i class="fa fa-fw fa-list"></i> List All Products</a>
             </li>
         </ul>

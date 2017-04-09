@@ -5,7 +5,17 @@
 @section('content')
   <div class="container-fluid">
     <div class="row">
-      <h1>ADMIN HOME</h1>
-    </div>
+        <div class="col-lg-12">
+            <h1 class="page-header">
+            Dashboard <small>All Products</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-dashboard"></i> Dashboard
+                </li>
+            </ol>
+          </div>
+      </div>
+      @include('partials._products')
   </div>
 @endsection
