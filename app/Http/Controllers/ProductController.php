@@ -45,7 +45,7 @@ class ProductController extends Controller
       // validate the data
         $this->validate($request, [
           'name' => 'required|max:255',
-          'description' => 'required|max:255',
+          'description' => 'required',
           'category_id' => 'required|numeric|max:255',
           'image_url' => 'required|url'
         ]);
@@ -101,7 +101,7 @@ class ProductController extends Controller
       // validate the data
         $this->validate($request, [
           'name' => 'required|max:255',
-          'description' => 'required|max:255',
+          'description' => 'required',
           'category_id' => 'required|numeric|max:255',
           'image_url' => 'required|url'
         ]);

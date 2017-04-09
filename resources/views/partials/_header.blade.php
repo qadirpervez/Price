@@ -28,7 +28,7 @@
         <form class="navbar-form " method="get" action="{{ route('admin.search') }}">
           {{ csrf_field() }}
           <div class="input-group">
-            <input type="text" class="form-control" name="search" size="80" placeholder="Search For any product...">
+            <input type="text" class="form-control" name="search" value="{{ isset($_GET['search']) ? $_GET['search'] : ''}}" size="80" placeholder="Search For any product...">
             <div class="input-group-btn">
               <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
             </div>

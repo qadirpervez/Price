@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
         //redirect to another page
-        Session::flash('success', 'The category is sucessfully created');
+        Session::flash('success', 'The category "' . $category->name . '" is sucessfully created');
         return redirect()->route('category.create');
     }
 
