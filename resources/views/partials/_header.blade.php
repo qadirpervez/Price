@@ -43,6 +43,18 @@
             <li class="{{ Request::path() == 'admin/category' ? 'active' : '' }}">
                 <a href="{{ route('category.index') }}"><i class="fa fa-fw fa-list"></i>List Categories</a>
             </li>
+            <li class="{{ Request::path() == 'admin/subCategory/create' ? 'active' : '' }}">
+                <a href="{{ route('subCategory.create') }}"><i class="fa fa-fw fa-th-list"></i>Create Sub Category</a>
+            </li>
+            <li class="{{ Request::path() == 'admin/subCategory' ? 'active' : '' }}">
+                <a href="{{ route('subCategory.index') }}"><i class="fa fa-fw fa-list"></i>List Sub Categories</a>
+            </li>
+            <li class="{{ Request::path() == 'admin/sellerData/create' ? 'active' : '' }}">
+                <a href="{{ route('sellerData.create') }}"><i class="fa fa-fw fa-plus"></i>Add a Seller</a>
+            </li>
+            <li class="{{ Request::path() == 'admin/sellerData' ? 'active' : '' }}">
+                <a href="{{ route('sellerData.index') }}"><i class="fa fa-fw fa-list"></i>List All Sellers</a>
+            </li>
             <li class="{{ Request::path() == 'admin/product/create' ? 'active' : '' }}">
                 <a href="{{ route('product.create') }}"><i class="fa fa-fw fa-plus"></i>Add New Product </a>
             </li>

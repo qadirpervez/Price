@@ -1,6 +1,6 @@
 @extends('adminMain')
 @section('title')
-    Create Category
+    Create Sub Category
 @endsection
 @section('stylesheet')
   <link href="{{ URL::asset('css/parsley.css') }}" rel="stylesheet">
@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-            Dashboard <small>Create new category</small>
+            Dashboard <small>Create new Sub Category</small>
             </h1>
             <ol class="breadcrumb">
                 <li class="active">
@@ -42,8 +42,17 @@
       </div>
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          {!! Form::open(['route' => 'category.store', 'id' => 'form']) !!}
-            {!! Form::label('name', 'Category Name:') !!}
+          {!! Form::open(['route' => 'subCategory.store', 'id' => 'form']) !!}
+          {!! Form::label('category_id', 'Category:', ['class' => 'form-spacing-top']) !!}
+          <select class="form-control" name="category_id">
+
+            @foreach ($categories as $category)
+              <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+
+          </select>
+
+            {!! Form::label('name', 'Sub Category Name:', ['class' => 'form-spacing-top']) !!}
             {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name of the category...', 'data-parsley-required' => '', 'maxlength' => '255']) !!}
 
             {!! Form::submit('Create', ['class' => 'btn btn-success pull-right form-spacing-top']) !!}

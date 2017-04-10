@@ -15,7 +15,10 @@ Route::group(['middleware' => 'web'], function(){
     Route::get('search', 'AdminController@search')->name('admin.search');
     Route::resource('product', 'ProductController');
     Route::get('category/{category}/products', 'AdminController@categoryProducts')->name('category.products');
+    Route::get('subCategory/{category}/products', 'AdminController@subCategoryProducts')->name('subCategory.products');
+    Route::resource('subCategory', 'SubCategoryController');
     Route::resource('category', 'CategoryController');
+    Route::resource('sellerData', 'SellerData');
     Route::post('seller', 'SellerController@store')->name('seller.store');
     Route::put('seller/{seller}', 'SellerController@update')->name('seller.update');
     Route::delete('seller{seller}', 'SellerController@destroy')->name('seller.destroy');

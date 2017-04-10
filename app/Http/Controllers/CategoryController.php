@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Product;
+use App\SubCategory;
 use Session;
 class CategoryController extends Controller
 {
@@ -114,11 +116,14 @@ class CategoryController extends Controller
     {
         //delete the Category
         $category = Category::find($id);
-
+        $subCategories = SubCategory::query()->where('category_id', $id)->get();
+        foreach ($subCategories as $subCategory) {
+          $subCategory->delete();
+        }
         $category->delete();
 
         //set session message and return to all category
-        Session::flash('success', 'Category was sucessfully deleted.');
+        Session::flash('success', 'Category and its Sub Categories were sucessfully deleted.');
         return redirect()->route('category.index');
     }
 }

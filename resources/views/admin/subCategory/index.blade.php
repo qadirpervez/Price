@@ -1,6 +1,6 @@
 @extends('adminMain')
 @section('title')
-    View All Category
+    View All Sub Category
 @endsection
 @section('messages')
   @if (Session::has('success'))
@@ -11,7 +11,7 @@
     </div>
   @endif
   @if(count($errors) > 0)
-    <div class="container0fluid">
+    <div class="container-fluid">
       <div class="alert alert-danger">
         <strong>Errors:</strong>
         <ul>
@@ -44,6 +44,7 @@
               <tr>
                 <td>Sl No.</td>
                 <td>Name</td>
+                <td>Main Category</td>
                 <td>View All Products</td>
                 <td>Action</td>
                 <td>Action</td>
@@ -51,13 +52,14 @@
             </thead>
             <tbody>
               <?php $slNo = 1; ?>
-              @foreach ($categories as $category)
+              @foreach ($subcategories as $subCategory)
                 <tr>
                   <td>{{ $slNo++ }}</td>
-                  <td>{{ $category->name }}</td>
-                  <td><a href="{{ route('category.products', $category->id) }}" class="btn btn-primary btn-block">View All</a></td>
-                  <td><a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary btn-block">Edit</a></td>
-                  <td><a href="{{ route('category.show', $category->id) }}" class="btn btn-danger btn-block">Delete</a></td>
+                  <td>{{ $subCategory->name }}</td>
+                  <td>{{ $subCategory->category->name }}</td>
+                  <td><a href="{{ route('subCategory.products', $subCategory->id) }}" class="btn btn-primary btn-block">View All</a></td>
+                  <td><a href="{{ route('subCategory.edit', $subCategory->id) }}" class="btn btn-primary btn-block">Edit</a></td>
+                  <td><a href="{{ route('subCategory.show', $subCategory->id) }}" class="btn btn-danger btn-block">Delete</a></td>
                 </tr>
               @endforeach
             </tbody>

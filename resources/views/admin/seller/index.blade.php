@@ -1,6 +1,6 @@
 @extends('adminMain')
 @section('title')
-    View All Category
+    View All Sellers
 @endsection
 @section('messages')
   @if (Session::has('success'))
@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-            Dashboard <small>View All category</small>
+            Dashboard <small>View All Sellers</small>
             </h1>
             <ol class="breadcrumb">
                 <li class="active">
@@ -44,20 +44,20 @@
               <tr>
                 <td>Sl No.</td>
                 <td>Name</td>
-                <td>View All Products</td>
+                <td>picture</td>
                 <td>Action</td>
                 <td>Action</td>
               </tr>
             </thead>
             <tbody>
               <?php $slNo = 1; ?>
-              @foreach ($categories as $category)
+              @foreach ($sellers as $seller)
                 <tr>
                   <td>{{ $slNo++ }}</td>
-                  <td>{{ $category->name }}</td>
-                  <td><a href="{{ route('category.products', $category->id) }}" class="btn btn-primary btn-block">View All</a></td>
-                  <td><a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary btn-block">Edit</a></td>
-                  <td><a href="{{ route('category.show', $category->id) }}" class="btn btn-danger btn-block">Delete</a></td>
+                  <td>{{ $seller->name }}</td>
+                  <td><img class="img-responsive" src="{{ $seller->picture_url }}"></td>
+                  <td><a href="{{ route('sellerData.edit', $seller->id) }}" class="btn btn-primary btn-block">Edit</a></td>
+                  <td><a href="{{ route('sellerData.show', $seller->id) }}" class="btn btn-danger btn-block">Delete</a></td>
                 </tr>
               @endforeach
             </tbody>
