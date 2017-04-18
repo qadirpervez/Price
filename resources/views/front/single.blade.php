@@ -30,7 +30,7 @@
             <td class="col-md-3"><img src="{{ $seller->sellerData->picture_url }}"></td>
             <td class=" col-md-3 tick"><img src="img/tick-1.png" class="tick-align">7-14 Days delivery <br/>
               <img src="img/tick-1.png" >EMI: Available </td>
-            <td class="col-md-3"><h3>35,499</h3></td>
+            <td class="col-md-3"><h3>{{ $seller->price }}</h3></td>
             <td class="col-md-3"><a class="btn-primary" href="{{ $seller->product_url }}">Go To Store &nbsp; ></a></td>
           </tr>
         @endforeach
