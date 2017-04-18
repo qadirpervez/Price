@@ -22,7 +22,7 @@ class SellerController extends Controller
         //validate the data
 
         $this->validate($request, [
-          'name' => 'required|max:255',
+          'seller_data_id' => 'required|integer|max:255',
           'product_url' => 'required|url',
           'price' => 'required|numeric',
           'product_id' => 'required|numeric'
@@ -31,7 +31,7 @@ class SellerController extends Controller
         //store the data
 
         $seller = new Seller;
-        $seller->name = $request->name;
+        $seller->seller_data_id = $request->seller_data_id;
         $seller->product_url = $request->product_url;
         $seller->price = $request->price;
         $seller->product_id = $request->product_id;
@@ -55,7 +55,7 @@ class SellerController extends Controller
       //validate the data
 
       $this->validate($request, [
-        'name' => 'required|max:255',
+        'seller_data_id' => 'required|integer|max:255',
         'product_url' => 'required|url',
         'price' => 'required|numeric',
         'product_id' => 'required|numeric'
@@ -64,7 +64,7 @@ class SellerController extends Controller
       //store the data
 
       $seller = Seller::find($id);
-      $seller->name = $request->name;
+      $seller->seller_data_id = $request->seller_data_id;
       $seller->product_url = $request->product_url;
       $seller->price = $request->price;
       $seller->product_id = $request->product_id;

@@ -4,6 +4,14 @@
 @endsection
 @section('stylesheet')
   <link href="{{ URL::asset('css/parsley.css') }}" rel="stylesheet">
+  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+  <script>
+  tinymce.init({
+    selector:'textarea',
+    menubar: false,
+    plugins: 'link'
+  });
+  </script>
 @endsection
 @section('messages')
   @if(count($errors) > 0)
@@ -40,14 +48,26 @@
             {!! Form::label('name', 'Product Name:') !!}
             {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name of the Product...', 'data-parsley-required' => '', 'maxlength' => '255']) !!}
 
+            {!! Form::label('imp_description', 'Product main Description:', ['class' => 'form-spacing-top']) !!}
+            {!! Form::textarea('imp_description', null, ['class' => 'form-control', 'placeholder' => 'Main Description of the product...', 'rows' => '3']) !!}
+
             {!! Form::label('description', 'Product Description:', ['class' => 'form-spacing-top']) !!}
-            {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Description of the product...', 'data-parsley-required' => '', 'rows' => '4']) !!}
+            {!! Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Description of the product...', 'rows' => '7']) !!}
 
             {!! Form::label('category_id', 'Category:', ['class' => 'form-spacing-top']) !!}
-            <select class="form-control" name="category_id">
+            <select class="form-control" name="category_id" id="selectCategory">
 
               @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
+              @endforeach
+
+            </select>
+
+            {!! Form::label('sub_category_id', 'Sub Category:', ['class' => 'form-spacing-top']) !!}
+            <select class="form-control" name="sub_category_id" id="selectSubCategory">
+
+              @foreach ($subcategories as $subCategory)
+                <option value="{{ $subCategory->id }}">{{ $subCategory->name }} -> {{ $subCategory->category->name }}</option>
               @endforeach
 
             </select>

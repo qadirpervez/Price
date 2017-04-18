@@ -1,13 +1,19 @@
-@foreach (array_chunk($products->getCollection()->all(), 3) as $row)
+@foreach (array_chunk($products->getCollection()->all(), 4) as $row)
   <div class="row">
     @foreach ($row as $product)
-      <article class="col-md-4">
-        <h3 class="text-center">{{ $product->name }}<h3>
-        <img src="{{ $product->image_url }}" class="img-responsive" alt="{{ $product->name }}">
-        <div class=" text-center">
-          <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary">View</a>
+      <div class="col-md-3 unit-product">
+        <a href="{{ route('product.show', $product->id)}}">
+          <img src="{{ $product->image_url }}" class="img-responsive" alt="{{ $product->name }}">
+        </a>
+        <div class="product-title">
+          <h4><a href="{{ route('product.show', $product->id)}}">{{ $product->name }}</a></h4>
         </div>
-      </article>
+        <hr>
+        <h3>{!! $product->minPrice($product->id) !!}</h3><hr>
+        <div>
+          {!! $product->imp_description !!}
+        </div>
+      </div>
     @endforeach
   </div>
 @endforeach

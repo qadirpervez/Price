@@ -7,6 +7,23 @@
 .description-margin-top{
   margin-top: 25px;
 }
+.unit-product img{
+  margin:auto;
+  max-height: 150px;
+  min-height: 150px;
+}
+.unit-product:hover{
+	border: 2px solid #f2f3f5;
+	border-radius: 4px;
 
-
-   
+}
+.product-title{
+  max-height: 50px;
+  min-height: 50px;
+}
+.product-title h4{
+  padding-left: 25px;
+}
+.unit-product h3{
+  padding-left: 30px;
+}

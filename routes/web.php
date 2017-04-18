@@ -18,17 +18,17 @@ Route::group(['middleware' => 'web'], function(){
     Route::get('subCategory/{category}/products', 'AdminController@subCategoryProducts')->name('subCategory.products');
     Route::resource('subCategory', 'SubCategoryController');
     Route::resource('category', 'CategoryController');
-    Route::resource('sellerData', 'SellerData');
+    Route::resource('sellerData', 'SellerDataController');
     Route::post('seller', 'SellerController@store')->name('seller.store');
     Route::put('seller/{seller}', 'SellerController@update')->name('seller.update');
     Route::delete('seller{seller}', 'SellerController@destroy')->name('seller.destroy');
     Route::get('/', 'AdminController@index')->name('admin');
   });
-  Route::get('/', function () {
-      return view('welcome');
-  });
   Route::get('/login', 'LoginController@create')->name('loginPage');
   Route::post('/login', 'LoginController@store')->name('login');
   Route::get('/logout', 'LoginController@destroy')->name('logout');
+  Route::get('/product/{product}', 'GuestController@single')->name('front.single');
+  Route::get('/category/{category}/products', 'GuestController@categoryProducts')->name('category.guestProducts');
+  Route::get('/', 'GuestController@index')->name('home');
 
 });

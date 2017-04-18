@@ -38,6 +38,13 @@
           {!! Form::model($category, ['route' => ['category.update', $category->id], 'id' => 'form', 'method' => 'PUT' ]) !!}
             {!! Form::label('name', 'Category Name:') !!}
             {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name of the category...', 'data-parsley-required' => '', 'maxlength' => '255']) !!}
+
+            {!! Form::label('picture_url', 'Url OF banner') !!}
+            {!! Form::text('picture_url', null, ['class' => 'form-control', 'placeholder' => 'URL of the banner...', 'data-parsley-required' => '', 'data-parsley-type' => 'url', 'maxlength' => '255']) !!}
+
+            {!! Form::label('sponsor_url', 'Sponsor url:') !!}
+            {!! Form::text('sponsor_url', null, ['class' => 'form-control', 'placeholder' => 'Sponspor URL...', 'data-parsley-required' => '', 'data-parsley-type' => 'url', 'maxlength' => '255']) !!}
+
             <a href="{{ route('category.index') }}" class="btn btn-default form-spacing-top">Cancel</a>
             {!! Form::submit('Update', ['class' => 'btn btn-success pull-right form-spacing-top']) !!}
           {!! Form::close() !!}

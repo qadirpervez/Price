@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Seller;
 class Product extends Model
 {
     public function category(){
@@ -14,8 +14,10 @@ class Product extends Model
       return $this->hasMany('App\Seller');
     }
 
-    public function SubCategory(){
+    public function subCategory(){
       return $this->belongsTo('App\SubCategory');
     }
-
+    public function minPrice($id){
+      return Seller::where('product_id', '=', $id)->min('price');
+    }
 }

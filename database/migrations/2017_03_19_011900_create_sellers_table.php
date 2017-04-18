@@ -15,7 +15,7 @@ class CreateSellersTable extends Migration
     {
         Schema::create('sellers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('seller_data')->nullable()->nullable();
+            $table->integer('seller_data_id')->nullable()->nullable();
             $table->text('product_url');
             $table->string('price');
             $table->integer('product_id')->unsigned();

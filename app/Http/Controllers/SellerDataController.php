@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\SellerData;
 use App\Seller;
 use Session;
-class SellerData extends Controller
+class SellerDataController extends Controller
 {
     /**
      * Display a listing of the resource.

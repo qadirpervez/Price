@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h2 class="page-header">
-                  {{ $product->name }} <small>in {{ $product->Category->name }}</small>
+                  {{ $product->name }} <hr><small>In {{ $product->category->name }}->{{ $product->subCategory->name }}</small>
                 </h2>
                 <div class="breadcrumb row">
                     <div class="col-md-7 margin-top-time-edit">
@@ -94,7 +94,13 @@
 
                                   <div class="form-group">
                                     {!! Form::label('name', 'Seller Name:') !!}
-                                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Seller\'s Name...', 'data-parsley-required' => '']) !!}
+                                    <select class="form-control" name="seller_data_id">
+
+                                      @foreach ($sellerdatas as $sellerData)
+                                        <option value="{{ $sellerData->id }}">{{ $sellerData->name }}</option>
+                                      @endforeach
+
+                                    </select>
                                   </div>
 
                                   <div class="form-group">
@@ -122,11 +128,14 @@
                 </div>
                 <div class="col-md-12 row">
                   <div class="col-md-4 text-center">
-                    <h3><small>Description:</small></h3>
+                    <h3><small>Main Description:</small></h3>
                   </div>
                   <div class="col-md-8">
-                    <p class="description-margin-top">{{ $product->description }}</p>
+                    <p class="description-margin-top">{!! $product->imp_description !!}</p>
                   </div>
+                </div>
+                <div class="col-md-12 row">
+                  <p class="description-margin-top">{!! $product->description !!}</p>
                 </div>
               </div>
           </div>
@@ -147,7 +156,7 @@
         <tbody>
           @foreach ($product->sellers as $seller)
             <tr>
-              <td>{{ $seller->name }}</td>
+              <td><img src="{{ $seller->sellerData->picture_url }}" class="img-responsive"></td>
               <td>{{ $seller->price }}</td>
               <td><a href="{{ $seller->product_url }}" class="btn btn-primary btn-block" target="_blank">Seller Page<a></td>
               <td>
@@ -189,7 +198,13 @@
 
                     <div class="form-group">
                       {!! Form::label('name', 'Seller Name:') !!}
-                      {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Seller\'s Name...']) !!}
+                      <select class="form-control" name="seller_data_id">
+
+                        @foreach ($sellerdatas as $sellerData)
+                          <option value="{{ $sellerData->id }}" {{ ($sellerData->id == $seller->seller_data) ? 'selected=selected' : '' }}>{{ $sellerData->name }}</option>
+                        @endforeach
+
+                      </select>
                     </div>
 
                     <div class="form-group">

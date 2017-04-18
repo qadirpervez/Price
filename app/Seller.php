@@ -11,5 +11,5 @@ class Seller extends Model
   }
   public function sellerData(){
     return $this->belongsTo('App\SellerData');
-  }
+  } 
 }

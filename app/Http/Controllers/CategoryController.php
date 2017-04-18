@@ -45,11 +45,15 @@ class CategoryController extends Controller
     {
         //validate the data
         $this->validate($request, [
-          'name' => 'required|max:255|unique:categories'
+          'name' => 'required|max:255|unique:categories',
+          'picture_url' => 'required|url',
+          'sponsor_url' => 'required|url'
         ]);
         //store in db
         $category = new Category;
         $category->name = $request->name;
+        $category->picture_url = $request->picture_url;
+        $category->sponsor_url = $request->sponsor_url;
         $category->save();
         //redirect to another page
         Session::flash('success', 'The category "' . $category->name . '" is sucessfully created');
@@ -94,11 +98,15 @@ class CategoryController extends Controller
     {
         //validate the data
         $this->validate($request, [
-          'name' => 'required|max:255|unique:categories,name,'.$id
+          'name' => 'required|max:255|unique:categories,name,'.$id,
+          'picture_url' => 'required|url',
+          'sponsor_url' => 'required|url'
         ]);
         //save the data
         $category = Category::find($id);
         $category->name = $request->name;
+        $category->picture_url = $request->picture_url;
+        $category->sponsor_url = $request->sponsor_url;
         $category->save();
         //set flash and redirect
         Session::flash('success', 'The Category is sucessfully updated.');
