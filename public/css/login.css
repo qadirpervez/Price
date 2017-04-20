@@ -24,6 +24,7 @@ body {
 	margin:0;
 	font-size: 100%;
 	font-family: 'Questrial', sans-serif;
+	background: url("../img/background_login.jpg") !important;
 }
 h1,h2,h3,h4,h5,h6,input,p,a,select,button,textarea,label{
 	font-family: 'Questrial', sans-serif;
@@ -232,7 +233,9 @@ h1.agile_head {
 /* //copyright */
 /* -- Responsive code -- */
 /* -- Responsive code -- */
-
+.white-text{
+	color: #fff;
+}
 
 @media screen and (max-width: 1024px){
 	.wrap {
