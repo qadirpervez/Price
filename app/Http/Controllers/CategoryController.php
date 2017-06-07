@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
+use App\MainCategory;
 use App\SubCategory;
 use Session;
 class CategoryController extends Controller
@@ -32,7 +33,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $mains = MainCategory::all();
+        return view('admin.category.create')->withMains($mains);
     }
 
     /**
@@ -45,15 +47,17 @@ class CategoryController extends Controller
     {
         //validate the data
         $this->validate($request, [
-          'name' => 'required|max:255|unique:categories',
+          'name' => 'required|max:255',
           'picture_url' => 'required|url',
-          'sponsor_url' => 'required|url'
+          'sponsor_url' => 'required|url',
+          'main_category_id' => 'required|integer'
         ]);
         //store in db
         $category = new Category;
         $category->name = $request->name;
         $category->picture_url = $request->picture_url;
         $category->sponsor_url = $request->sponsor_url;
+        $category->main_category_id = $request->main_category_id;
         $category->save();
         //redirect to another page
         Session::flash('success', 'The category "' . $category->name . '" is sucessfully created');
@@ -98,7 +102,7 @@ class CategoryController extends Controller
     {
         //validate the data
         $this->validate($request, [
-          'name' => 'required|max:255|unique:categories,name,'.$id,
+          'name' => 'required|max:255',
           'picture_url' => 'required|url',
           'sponsor_url' => 'required|url'
         ]);

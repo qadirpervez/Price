@@ -1,11 +1,7 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="{{ URL::asset('js/cbpHorizontalMenu.min.js') }}"></script>
 <script>
-	  function openNav() {
-    document.getElementById("mySidenav").style.width = "70%";
-    // document.getElementById("compare-navbar").style.width = "50%";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.body.style.backgroundColor = "rgba(0,0,0,0)";
-}
+	$(function() {
+		cbpHorizontalMenu.init();
+	});
 </script>

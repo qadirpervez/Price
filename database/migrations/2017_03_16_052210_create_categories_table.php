@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->text('picture_url');
             $table->text('sponsor_url');
+            $table->integer('main_category_id')->unsigned();
             $table->timestamps();
         });
     }

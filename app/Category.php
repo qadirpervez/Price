@@ -18,4 +18,7 @@ class Category extends Model
     public function homeCategoryProducts($id){
       return Product::where('category_id', '=', $id)->limit(6)->get();
     }
+    public function MainCategory(){
+      return $this->belongsTo('App\MainCategory');
+    }
 }

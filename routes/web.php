@@ -16,12 +16,15 @@ Route::group(['middleware' => 'web'], function(){
     Route::resource('product', 'ProductController');
     Route::get('category/{category}/products', 'AdminController@categoryProducts')->name('category.products');
     Route::get('subCategory/{category}/products', 'AdminController@subCategoryProducts')->name('subCategory.products');
+    Route::get('main_category', 'MainCategoryController@index')->name('mainCategory.index');
+    Route::get('main_category/{main_category}/edit', 'MainCategoryController@edit')->name('mainCategory.edit');
+    Route::put('main_category/{main_category}', 'MainCategoryController@update')->name('mainCategory.update');
     Route::resource('subCategory', 'SubCategoryController');
     Route::resource('category', 'CategoryController');
     Route::resource('sellerData', 'SellerDataController');
     Route::post('seller', 'SellerController@store')->name('seller.store');
     Route::put('seller/{seller}', 'SellerController@update')->name('seller.update');
-    Route::delete('seller{seller}', 'SellerController@destroy')->name('seller.destroy');
+    Route::delete('seller/{seller}', 'SellerController@destroy')->name('seller.destroy');
     Route::get('/', 'AdminController@index')->name('admin');
   });
   Route::get('/login', 'LoginController@create')->name('loginPage');
@@ -30,5 +33,4 @@ Route::group(['middleware' => 'web'], function(){
   Route::get('/product/{product}', 'GuestController@single')->name('front.single');
   Route::get('/category/{category}/products', 'GuestController@categoryProducts')->name('category.guestProducts');
   Route::get('/', 'GuestController@index')->name('home');
-
 });

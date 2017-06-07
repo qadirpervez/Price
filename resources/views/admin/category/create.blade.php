@@ -52,6 +52,13 @@
             {!! Form::label('sponsor_url', 'Sponsor url:') !!}
             {!! Form::text('sponsor_url', null, ['class' => 'form-control', 'placeholder' => 'Sponspor URL...', 'data-parsley-required' => '', 'data-parsley-type' => 'url', 'maxlength' => '255']) !!}
 
+            {!! Form::label('main_category_id', 'Main Category:') !!}
+            <select name="main_category_id" class="form-control">
+              @foreach ($mains as $main)
+                <option value="{{ $main->id }}">{{ $main->name }}</option>
+              @endforeach
+            </select>
+
             {!! Form::submit('Create', ['class' => 'btn btn-success pull-right form-spacing-top']) !!}
           {!! Form::close() !!}
         </div>

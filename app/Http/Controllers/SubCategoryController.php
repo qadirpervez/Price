@@ -48,7 +48,7 @@ class SubCategoryController extends Controller
     {
       //validate the data
       $this->validate($request, [
-        'name' => 'required|max:255|unique:sub_categories',
+        'name' => 'required|max:255',
         'category_id' => 'required|max:255|numeric'
       ]);
       //store in db
@@ -101,7 +101,7 @@ class SubCategoryController extends Controller
     {
       //validate the data
       $this->validate($request, [
-        'name' => 'required|max:255|unique:sub_categories,name,'.$id
+        'name' => 'required|max:255'
       ]);
       //save the data
       $subCategory = SubCategory::find($id);
