@@ -1,3 +1,10 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
 .form-spacing-top{
   margin-top: 15px;
 }
@@ -26,4 +33,49 @@
 }
 .unit-product h3{
   padding-left: 30px;
+}
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #523f6d;
+    background: #523f6d;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #fff;
+}
+.top-nav>li>a:hover{
+  background: #ff6347;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #ff6347;
+}
+.navbar-nav>a:hover{
+    background: #9acd32;
+}
+@media (min-width: 768px){
+  .side-nav {
+      position: fixed;
+      top: 51px;
+      left: 225px;
+      width: 225px;
+      margin-left: -225px;
+      border: none;
+      border-radius: 0;
+      overflow-y: auto;
+      background-color: #523f6d;
+      bottom: 0;
+      overflow-x: hidden;
+      padding-bottom: 40px;
+  }
+  .side-nav li:hover{
+    background: #9acd32;
+  }
 }
