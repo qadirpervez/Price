@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('category_id')->nullable()->unsigned();
             $table->integer('sub_category_id')->nullable()->unsigned();
+            $table->integer('main_category_id')->nullable()->unsigned();
             $table->text('image_url');
             $table->timestamps();
         });

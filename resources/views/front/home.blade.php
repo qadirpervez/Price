@@ -3,5 +3,36 @@
   Home
 @endsection
 @section('content')
-
+  @foreach ($mains as $main)
+    <div class="new-collections">
+  <div class="container">
+    <h3 class="animated wow zoomIn" data-wow-delay=".5s">{{ $main->name }}</h3>
+    <p class="est animated wow zoomIn" data-wow-delay=".5s">Explore some products from this category</p>
+    <div class="new-collections-grids">
+      @foreach (array_chunk($main->ProductsHome($main->id)->all(), 2) as $row)
+        <div class="col-md-3 new-collections-grid">
+          @foreach ($row as $product)
+            <div class="new-collections-grid1 animated wow slideInUp " data-wow-delay=".5s">
+              <div class="new-collections-grid1-image">
+                <a href="#" class="product-image"><img src="{{ $product->image_url }}" height="300px" class="img-responsive product-picture-custom" /></a>
+                <div class="new-collections-grid1-image-pos">
+                  <a href="{{ route('front.single', $product->id) }}">Quick View</a>
+                </div>
+                <div class="new-collections-grid1-right">
+                </div>
+              </div>
+              <h4><a href="{{ route('front.single', $product->id) }}">{{ $product->name }}</a></h4>
+              <p>{!! $product->imp_description !!}</p>
+              <div class="new-collections-grid1-left simpleCart_shelfItem">
+                <p><span class="item_price">{{ $product->minPrice($product->id) }}</span></p>
+              </div>
+            </div>
+          @endforeach
+        </div>
+      @endforeach
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>
+  @endforeach
 @endsection

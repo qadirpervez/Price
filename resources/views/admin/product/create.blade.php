@@ -58,7 +58,7 @@
             <select class="form-control" name="category_id" id="selectCategory">
 
               @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <option value="{{ $category->id }}">{{ $category->MainCategory->name }} -> {{ $category->name }}</option>
               @endforeach
 
             </select>
@@ -67,7 +67,7 @@
             <select class="form-control" name="sub_category_id" id="selectSubCategory">
 
               @foreach ($subcategories as $subCategory)
-                <option value="{{ $subCategory->id }}">{{ $subCategory->name }} -> {{ $subCategory->category->name }}</option>
+                <option value="{{ $subCategory->id }}">{{ $subCategory->name }} -> {{ $subCategory->category->name }} -> {{ $subCategory->category->MainCategory->name }}</option>
               @endforeach
 
             </select>

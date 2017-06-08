@@ -3,24 +3,27 @@
   {{ $category->name }} all products
 @endsection
 @section('content')
-  <div>
-    <a href="{{ $category->sponsor_url }}" target="_blank"><img src="{{ $category->picture_url }}" class="img-responsive"></a>
-  </div>
-  <div class="container-fluid">
-    @foreach (array_chunk($products->getCollection()->all(), 4) as $row)
-      <div class="row">
+  <div class="new-collections">
+<div class="container">
+  <h3 class="animated wow zoomIn" data-wow-delay=".5s">{{ $category->name }}</h3>
+  <p class="est animated wow zoomIn" data-wow-delay=".5s">Explore some products from this category</p>
+  <div class="new-collections-grids">
+    @foreach (array_chunk($products->getCollection()->all(), 2) as $row)
+      <div class="col-md-3 new-collections-grid">
         @foreach ($row as $product)
-          <div class="col-md-3 unit-product">
-            <a href="{{ route('front.single', $product->id)}}">
-              <img src="{{ $product->image_url }}" class="img-responsive" alt="{{ $product->name }}">
-            </a>
-            <div class="product-title">
-              <h4><a href="{{ route('front.single', $product->id)}}">{{ $product->name }}</a></h4>
+          <div class="new-collections-grid1 animated wow slideInUp " data-wow-delay=".5s">
+            <div class="new-collections-grid1-image">
+              <a href="#" class="product-image"><img src="{{ $product->image_url }}" height="300px" class="img-responsive product-picture-custom" /></a>
+              <div class="new-collections-grid1-image-pos">
+                <a href="{{ route('front.single', $product->id) }}">Quick View</a>
+              </div>
+              <div class="new-collections-grid1-right">
+              </div>
             </div>
-            <hr>
-            <h3>{!! $product->minPrice($product->id) !!}</h3><hr>
-            <div>
-              {!! $product->imp_description !!}
+            <h4><a href="{{ route('front.single', $product->id) }}">{{ $product->name }}</a></h4>
+            <p>{!! $product->imp_description !!}</p>
+            <div class="new-collections-grid1-left simpleCart_shelfItem">
+              <p><span class="item_price">{{ $product->minPrice($product->id) }}</span></p>
             </div>
           </div>
         @endforeach
@@ -28,4 +31,6 @@
     @endforeach
     <div class="text-center">{{ $products->links() }}</div>
   </div>
+</div>
+</div>
 @endsection

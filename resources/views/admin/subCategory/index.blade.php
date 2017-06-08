@@ -56,7 +56,7 @@
                 <tr>
                   <td>{{ $slNo++ }}</td>
                   <td>{{ $subCategory->name }}</td>
-                  <td>{{ $subCategory->category->name }}</td>
+                  <td>{{ $subCategory->category->MainCategory->name }} -> {{ $subCategory->category->name }}</td>
                   <td><a href="{{ route('subCategory.products', $subCategory->id) }}" class="btn btn-primary btn-block">View All</a></td>
                   <td><a href="{{ route('subCategory.edit', $subCategory->id) }}" class="btn btn-primary btn-block">Edit</a></td>
                   <td><a href="{{ route('subCategory.show', $subCategory->id) }}" class="btn btn-danger btn-block">Delete</a></td>

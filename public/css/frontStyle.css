@@ -17,6 +17,10 @@ ul,label{
 body a:hover{
 	text-decoration:none;
 }
+.product-picture-custom{
+  min-height: 230px;
+  max-height: 230px;
+}
 /*-- featured shops --*/
 .side-festured-shops:nth-child(1){
     background: #fff;
@@ -76,7 +80,7 @@ body a:hover{
 .bottom-featured-shops-location{
     font-size: 14px;
     margin-left: 13px;
-    color: #6bb5e1;  
+    color: #6bb5e1;
 }
 /*-- featured shops ends --*/
 /*-- custom footer starts --*/
@@ -104,7 +108,7 @@ body a:hover{
     padding: 14px;
     max-height: 105px;
     min-height: 105px;
-    
+
 }
 .footer-2-border{
     background: #f1f1f1;

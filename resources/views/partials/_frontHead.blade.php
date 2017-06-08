@@ -6,7 +6,6 @@
 </script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Latest compiled and minified JavaScript -->
-<link href="{{ URL::asset('css/frontStyle.css') }}" rel="stylesheet" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/default.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/component.css') }}" />
 <!-- js -->
@@ -25,6 +24,7 @@
 <!-- //timer -->
 <!-- animation-effect -->
 <link href="{{ URL::asset('css/animate.min.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('css/frontStyle.css') }}" rel="stylesheet" type="text/css" media="all" />
 <script src="{{ URL::asset('js/wow.min.js') }}"></script>
 <script>
  new WOW().init();

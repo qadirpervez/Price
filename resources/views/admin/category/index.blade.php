@@ -54,7 +54,7 @@
               @foreach ($categories as $category)
                 <tr>
                   <td>{{ $slNo++ }}</td>
-                  <td>{{ $category->name }}</td>
+                  <td>{{ $category->MainCategory->name }} -> {{ $category->name }}</td>
                   <td><a href="{{ route('category.products', $category->id) }}" class="btn btn-primary btn-block">View All</a></td>
                   <td><a href="{{ route('category.edit', $category->id) }}" class="btn btn-primary btn-block">Edit</a></td>
                   <td><a href="{{ route('category.show', $category->id) }}" class="btn btn-danger btn-block">Delete</a></td>

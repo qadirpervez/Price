@@ -37,7 +37,7 @@
             <li class="{{ Request::path() == 'admin' ? 'active' : '' }}">
                 <a href="{{ route('admin') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
-            <li class="{{ Request::path() == 'admin/MainCategory' ? 'active' : '' }}">
+            <li class="{{ Request::path() == 'admin/main_category' ? 'active' : '' }}">
                 <a href="{{ route('mainCategory.index') }}"><i class="fa fa-fw fa-list"></i>List Main Categories</a>
             </li>
             <li class="{{ Request::path() == 'admin/category/create' ? 'active' : '' }}">

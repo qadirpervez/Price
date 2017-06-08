@@ -60,12 +60,14 @@ class ProductController extends Controller
         //store th data
         $subCategoryID = SubCategory::find($request->sub_category_id);
         if($subCategoryID->category_id == $request->category_id){
+          $Category = Category::find($request->category_id);
           $product = new Product;
           $product->name = $request->name;
           $product->imp_description = $request->imp_description;
           $product->description = $request->description;
           $product->category_id = $request->category_id;
           $product->sub_category_id = $request->sub_category_id;
+          $product->main_category_id = $Category->main_category_id;
           $product->image_url = $request->image_url;
           $product->save();
           //Redirect with messages
@@ -125,15 +127,24 @@ class ProductController extends Controller
           'image_url' => 'required|url'
         ]);
         //store th data
-        $product = Product::find($id);
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->category_id = $request->category_id;
-        $product->image_url = $request->image_url;
-        $product->save();
+        $subCategoryID = SubCategory::find($request->sub_category_id);
+        if($subCategoryID->category_id == $request->category_id){
+          $Category = Category::find($request->category_id);
+          $product = new Product;
+          $product->name = $request->name;
+          $product->imp_description = $request->imp_description;
+          $product->description = $request->description;
+          $product->category_id = $request->category_id;
+          $product->sub_category_id = $request->sub_category_id;
+          $product->main_category_id = $Category->main_category_id;
+          $product->image_url = $request->image_url;
+          $product->save();
         //Redirect with messages
-        Session::flash('success', 'The Product is sucessfully Changed');
+        Session::flash('success', 'The Product is sucessfully Updated');
         return redirect()->route('product.show', $product->id);
+      } else {
+        return redirect()->back()->withErrors('The Sub Category didn\'t comes under the sub category of selected category.');
+      }
     }
 
     /**
