@@ -4,7 +4,7 @@
 			<div class="header-grid">
 				<div class="header-grid-right animated wow slideInLeft" data-wow-delay=".5s">
 					<div class="logo-nav-left animated wow zoomIn" data-wow-delay=".5s">
-						<h1><a href="{{ route('home') }}">Price<span>Best Deals</span></a></h1>
+						<h1><a href="{{ route('home') }}">Hike Market<span>compare &amp; buy</span></a></h1>
 					</div>
 				</div>
 				<div class="search-form-div">
