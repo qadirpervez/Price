@@ -8,11 +8,12 @@
 					</div>
 				</div>
 				<div class="search-form-div">
-					<form class="form-inline">
+					<form class="form-inline" method="get" action="{{ route('guest.search') }}">
 						<div class="form-group">
-							<input class="search-form-input" placeholder="Enter your search term..." type="search" id="">
+							{{ csrf_field() }}
+							<input class="search-form-input" name="search" value="{{ isset($_GET['search']) ? $_GET['search'] : ''}}" size="80" placeholder="Search For any product...">
 						</div>
-						<button class="btn btn-primary" type="submit" value=""><i class="glyphicon glyphicon-search"></i></button>
+						<button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 					</form>
 				</div>
 				<div class="header-grid-left animated wow slideInRight" data-wow-delay=".5s">

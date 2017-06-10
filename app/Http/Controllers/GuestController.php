@@ -30,4 +30,9 @@ class GuestController extends Controller
       $product = Product::find($id);
       return view('front.single')->withProduct($product)->withMains($mains);
     }
+    public function search(Request $request){
+      $mains = MainCategory::all();
+      $products = Product::where('name', 'like', '%' . $request->search . '%')->orWhere('description', 'like', '%' . $request->search . '%')->paginate(12);
+       return view('front.search')->withProducts($products)->withMains($mains);
+    }
 }

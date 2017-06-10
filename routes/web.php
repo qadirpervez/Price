@@ -27,6 +27,7 @@ Route::group(['middleware' => 'web'], function(){
     Route::delete('seller/{seller}', 'SellerController@destroy')->name('seller.destroy');
     Route::get('/', 'AdminController@index')->name('admin');
   });
+  Route::get('/search', 'GuestController@search')->name('guest.search');
   Route::get('/login', 'LoginController@create')->name('loginPage');
   Route::post('/login', 'LoginController@store')->name('login');
   Route::get('/logout', 'LoginController@destroy')->name('logout');

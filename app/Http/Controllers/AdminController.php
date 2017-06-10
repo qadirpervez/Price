@@ -22,7 +22,7 @@ class AdminController extends Controller
       return view('admin.categoryProducts')->withProducts($products)->withCategory($category);
     }
     public function search(Request $request){
-      $products = Product::where('name', 'like', '%' . $request->search . '%')->orWhere('description', 'like', '%' . $request->search . '%')->paginate(5);
+      $products = Product::where('name', 'like', '%' . $request->search . '%')->orWhere('description', 'like', '%' . $request->search . '%')->paginate(12);
        return view('admin.search')->withProducts($products);
     }
 }
