@@ -3,6 +3,9 @@ html, body{
 	background:	#fff;
 	font-family: 'Open Sans', sans-serif;
 }
+.menu img{
+  display: none;
+}
 p{
 	margin:0;
 }
@@ -1591,13 +1594,128 @@ li.list-group-item1 {
 h2.typoh2{
     margin: 0 0 10px;
 }
-@media (max-width:768px){
+@media (max-width:1200px){
+  .search-form-div{
+    float: left;
+    position: absolute;
+    top: 90px;
+    left: 50px;
+    width: 100%;
+  }
+  .search-form-input{
+    width: 92%;
+  }
+  .pages-static{
+    position: absolute;
+    top: 30px;
+    left: 400px;
+  }
+  .main-div-header{
+    position: relative;
+    height: 150px;
+  }
+span.menu{
+		display: block !important;
+		text-align: right;
+		padding: 5px 0px 0px 0px;
+		cursor: pointer;
+		font-size: 16px;
+		font-weight: 700;
+		position:relative;
+    clear: both;
+}
+.menu img{
+  display: block;
+  float: right;
+}
+.container-fluid ul.res{
+	 display:none;
+	 padding:0px;
+}
+.container-fluid ul.res {
+		padding: 0;
+		margin:0.9em 0em 0em 0em;
+		z-index: 9999;
+		position: absolute;
+		width: 100%;
+		left:0;
+}
+.container-fluid ul.res li{
+		display: block;
+		text-align: center;
+		background:#FFFFFF;
+		margin: 0;
+	    width: 100%;
+		padding: 0em;
+}
+.container-fluid ul.res li a {
+		font-size: 16px;
+		padding: 0.6em 0;
+		display: block;
+		border: none;
+        text-align: center;
+        margin: 0em;
+}
+ul.res li a.lists:hover,ul.res li a.lists.active{
+	color:#fff;
+  background: #47a3da;
+}
+
+.header-left {
+    width: 50%;
+}
+.contaiiner-fluid {
+    width: 50%;
+    padding-top: 0.25em;
+}
 	.grid_5 {
 		padding: 0 0 1em;
 	}
 	.grid_3 {
 		margin-bottom: 0em;
 	}
+  .cbp-hrmenu .cbp-hrsub-inner > .nav-bar-category-img {
+		width: 32%;
+		float: left;
+		padding: 0 10px;
+	}
+  .cbp-hrmenu .cbp-hrsub-inner > div {
+		width: 100%;
+		float: none;
+		padding: 0 10px;
+	}
+}
+@media (max-width:900px){
+  .pages-static{
+    position: absolute;
+    top: 30px;
+    left: 300px;
+  }
+  .search-form-div{
+    float: left;
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    width: 100%;
+  }
+  .search-form-input{
+    width: 92%;
+  }
+}
+@media (max-width:610px){
+  .pages-static{
+    display: none;
+  }
+  .search-form-div{
+    float: left;
+    position: absolute;
+    top: 80px;
+    left: 15px;
+    width: 90%;
+  }
+  .search-form-input{
+    width: 80%;
+  }
 }
 @media (max-width:640px){
 	h1, .h1, h2, .h2, h3, .h3 {
