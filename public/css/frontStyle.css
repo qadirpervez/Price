@@ -6,6 +6,17 @@ html, body{
 .menu img{
   display: none;
 }
+.table-custom{
+  width: 100%;
+  overflow-x: scroll;
+}
+.seller-img{
+  max-width: 100px;
+  max-height: 100px;
+}
+.custom-product{
+  padding: 20%;
+}
 p{
 	margin:0;
 }

@@ -9,7 +9,7 @@
           <h4><a href="{{ route('product.show', $product->id)}}">{{ $product->name }}</a></h4>
         </div>
         <hr>
-        <h3>{!! $product->minPrice($product->id) !!}</h3><hr>
+        <h3>&#8377; {!! $product->minPrice($product->id) !!}</h3><hr>
         <div>
           {!! $product->imp_description !!}
         </div>

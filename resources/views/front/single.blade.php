@@ -7,7 +7,9 @@
     <div class="single-product-intro col-md-8 col-md-offset-2">
       <div class="row">
         <div class="col-md-3">
-          <img src="{{ $product->image_url }}" class="img-responsive">
+          <div class="custom-product">
+            <img src="{{ $product->image_url }}" class="img-responsive">
+          </div>
         </div>
         <div class="col-md-9">
           <div class="product-short-desc">
@@ -24,14 +26,12 @@
       </div>
     </div>
     <div class="container-fluid">
-      <table class="product-table">
+      <table class="table table-responsive table-custom">
         @foreach($product->sellers as $seller)
           <tr class="row">
-            <td class="col-md-3"><img src="{{ $seller->sellerData->picture_url }}"></td>
-            <td class=" col-md-3 tick"><img src="img/tick-1.png" class="tick-align">7-14 Days delivery <br/>
-              <img src="img/tick-1.png" >EMI: Available </td>
-            <td class="col-md-3"><h3>{{ $seller->price }}</h3></td>
-            <td class="col-md-3"><a class="btn-primary" href="{{ $seller->product_url }}">Go To Store &nbsp; ></a></td>
+            <td class="col-md-3"><img src="{{ $seller->sellerData->picture_url }}" class="img-responsive seller-img"></td>
+            <td class="col-md-3"><h3>&#8377; {{ $seller->price }}</h3></td>
+            <td class="col-md-3"><a class="btn btn-primary" href="{{ $seller->product_url }}">Go To Store &nbsp; ></a></td>
           </tr>
         @endforeach
      </table>

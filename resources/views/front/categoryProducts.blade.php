@@ -23,7 +23,7 @@
             <h4><a href="{{ route('front.single', $product->id) }}">{{ $product->name }}</a></h4>
             <p>{!! $product->imp_description !!}</p>
             <div class="new-collections-grid1-left simpleCart_shelfItem">
-              <p><span class="item_price">{{ $product->minPrice($product->id) }}</span></p>
+              <p><span class="item_price">&#8377; {{ $product->minPrice($product->id) }}</span></p>
             </div>
           </div>
         @endforeach
