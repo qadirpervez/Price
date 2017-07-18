@@ -3,6 +3,43 @@ html, body{
 	background:	#fff;
 	font-family: 'Open Sans', sans-serif;
 }
+.filter-form-text{
+  display: none;
+}
+.filter-form-text:hover{
+  color: #47a3da;
+}
+.brands-desc-filter{
+  height: 130px;
+  overflow-y: scroll;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+}
+.sort-by-box{
+  font-size: 12px;
+}
+.prices-desc-filter{
+  height: 150px;
+  overflow-y: scroll;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+}
+.filter-form-text{
+  color: #47a3da;
+  font-size: 17px;
+  font-weight: bold;
+}
+.padding-equally{
+  padding: 12px;
+  font-weight: bold;
+}
+.margin-equally{
+  margin: 15px;
+}
 .menu img{
   display: none;
 }
@@ -790,7 +827,7 @@ p.est{
     font-size:1.2em !important;
 }
 .new-collections {
-    background: #F7F7F9;
+    background: #f9f9f9;
 }
 .rating-left{
 	float:left;
@@ -1654,12 +1691,18 @@ h2.typoh2{
 	}
 }
 @media (max-width:993px) {
+  .filter-form-text{
+    display: block;
+  }
   .pages-static{
     position: absolute;
     top: 30px;
     left: 300px;
   }
-
+  .filter-form-text{
+    color: #47a3da;
+    cursor: pointer;
+  }
   .search-form-div{
     float: left;
     position: absolute;

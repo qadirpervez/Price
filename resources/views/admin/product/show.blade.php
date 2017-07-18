@@ -50,6 +50,7 @@
                 <h2 class="page-header">
                   {{ $product->name }} <hr><small>In {{ $product->category->name }}->{{ $product->subCategory->name }}</small>
                 </h2>
+                <p>By: {{ $product->Brand->brand }}</p>
                 <div class="breadcrumb row">
                     <div class="col-md-7 margin-top-time-edit">
                         <i class="fa  fa-clock-o"></i> Listed: {{ $product->created_at->diffForHumans() }}, Last Updated: {{ $product->updated_at->diffForHumans() }}

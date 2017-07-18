@@ -71,7 +71,14 @@
               @endforeach
 
             </select>
+            {!! Form::label('brand_id', 'Brand:', ['class' => 'form-spacing-top']) !!}
+            <select class="form-control" name="brand_id" id="selectBrand">
 
+              @foreach ($brands as $brand)
+                <option value="{{ $brand->id }}">{{ $brand->brand }}</option>
+              @endforeach
+
+            </select>
             {!! Form::label('image_url', 'Picture\'s URL:', ['class' => 'form-spacing-top']) !!}
             {!! Form::text('image_url', null, ['class' => 'form-control', 'placeholder' => 'Link of the picture...', 'data-parsley-required' => '', 'data-parsley-type' => 'url']) !!}
 

@@ -20,4 +20,7 @@ class Product extends Model
     public function minPrice($id){
       return Seller::where('product_id', '=', $id)->min('price');
     }
+    public function Brand(){
+      return $this->belongsTo('App\Brand');
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Seller;
+use App\Product;
 use Session;
 
 class SellerController extends Controller
@@ -38,6 +39,17 @@ class SellerController extends Controller
 
         $seller->save();
 
+        //adding min price to product.
+        $product = Product::find($request->product_id);
+        if($product->min_price){
+          if($product->min_price  > $request->price){
+            $product->min_price = $request->price;
+          }
+        } else {
+          $product->min_price = $request->price;
+        }
+        $product->save();
+
         //redirect with message
         Session::flash('success', 'Seller sucessfully added.');
         return redirect()->route('product.show', $request->product_id);
@@ -71,6 +83,17 @@ class SellerController extends Controller
 
       $seller->save();
 
+      //adding min price to product.
+      $product = Product::find($request->product_id);
+      if($product->min_price){
+        if($product->min_price  > $request->price){
+          $product->min_price = $request->price;
+        }
+      } else {
+        $product->min_price = $request->price;
+      }
+      $product->save();
+
       //redirect with message
       Session::flash('success', 'Seller sucessfully edited.');
       return redirect()->route('product.show', $seller->product_id);
@@ -87,8 +110,11 @@ class SellerController extends Controller
     {
       //delete the Category
       $seller = Seller::find($id);
-
+      $product = Product::find($seller->product_id);
       $seller->delete();
+      $min_p_seller = Seller::where('product_id', '=', $product->id)->min('price');
+      $product->min_price = $min_p_seller;
+      $product->save();
 
       //set session message and return to all category
       Session::flash('success', 'Seller was sucessfully deleted.');

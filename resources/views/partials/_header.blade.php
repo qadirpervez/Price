@@ -37,6 +37,18 @@
             <li class="{{ Request::path() == 'admin' ? 'active' : '' }}">
                 <a href="{{ route('admin') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
+            <li class="{{ Request::path() == 'admin/product/create' ? 'active' : '' }}">
+                <a href="{{ route('product.create') }}"><i class="fa fa-fw fa-plus"></i>Add New Product </a>
+            </li>
+            <li class="{{ Request::path() == 'admin/product' ? 'active' : '' }}">
+                <a href="{{ route('product.index') }}"><i class="fa fa-fw fa-list"></i> List All Products</a>
+            </li>
+            <li class="{{ Request::path() == 'admin/brand/create' ? 'active' : '' }}">
+                <a href="{{ route('brand.create') }}"><i class="fa fa-fw fa-plus"></i> Create A Brand </a>
+            </li>
+            <li class="{{ Request::path() == 'admin/brand' ? 'active' : '' }}">
+                <a href="{{ route('brand.index') }}"><i class="fa fa-fw fa-list"></i> List All Brands</a>
+            </li>
             <li class="{{ Request::path() == 'admin/main_category' ? 'active' : '' }}">
                 <a href="{{ route('mainCategory.index') }}"><i class="fa fa-fw fa-list"></i>List Main Categories</a>
             </li>
@@ -57,12 +69,6 @@
             </li>
             <li class="{{ Request::path() == 'admin/sellerData' ? 'active' : '' }}">
                 <a href="{{ route('sellerData.index') }}"><i class="fa fa-fw fa-list"></i>List All Sellers</a>
-            </li>
-            <li class="{{ Request::path() == 'admin/product/create' ? 'active' : '' }}">
-                <a href="{{ route('product.create') }}"><i class="fa fa-fw fa-plus"></i>Add New Product </a>
-            </li>
-            <li class="{{ Request::path() == 'admin/product' ? 'active' : '' }}">
-                <a href="{{ route('product.index') }}"><i class="fa fa-fw fa-list"></i> List All Products</a>
             </li>
         </ul>
     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Brand;
 use App\SubCategory;
 use App\Seller;
 use App\SellerData;
@@ -37,7 +38,8 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        return view('admin.product.create')->withCategories($categories)->withSubcategories($subCategories);
+        $brands = Brand::all();
+        return view('admin.product.create')->withCategories($categories)->withSubcategories($subCategories)->withBrands($brands);
     }
 
     /**
@@ -55,6 +57,7 @@ class ProductController extends Controller
           'description' => 'required',
           'category_id' => 'required|numeric|max:255',
           'sub_category_id' => 'required|numeric|max:255',
+          'brand_id' => 'required|numeric|max:255',
           'image_url' => 'required|url'
         ]);
         //store th data
@@ -68,6 +71,7 @@ class ProductController extends Controller
           $product->category_id = $request->category_id;
           $product->sub_category_id = $request->sub_category_id;
           $product->main_category_id = $Category->main_category_id;
+          $product->brand_id = $request->brand_id;
           $product->image_url = $request->image_url;
           $product->save();
           //Redirect with messages
@@ -106,7 +110,8 @@ class ProductController extends Controller
 
         $categories = Category::all();
         $subCategories = SubCategory::all();
-        return view('admin.product.edit')->withProduct($product)->withCategories($categories)->withSubcategories($subCategories);
+        $brands = Brand::all();
+        return view('admin.product.edit')->withProduct($product)->withCategories($categories)->withSubcategories($subCategories)->withBrands($brands);
 
     }
 
@@ -124,19 +129,21 @@ class ProductController extends Controller
           'name' => 'required|max:255',
           'description' => 'required',
           'category_id' => 'required|numeric|max:255',
+          'brand_id' => 'required|numeric|max:255',
           'image_url' => 'required|url'
         ]);
         //store th data
         $subCategoryID = SubCategory::find($request->sub_category_id);
         if($subCategoryID->category_id == $request->category_id){
           $Category = Category::find($request->category_id);
-          $product = new Product;
+          $product = Product::find($id);
           $product->name = $request->name;
           $product->imp_description = $request->imp_description;
           $product->description = $request->description;
           $product->category_id = $request->category_id;
           $product->sub_category_id = $request->sub_category_id;
           $product->main_category_id = $Category->main_category_id;
+          $product->brand_id = $request->brand_id;
           $product->image_url = $request->image_url;
           $product->save();
         //Redirect with messages

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
+use App\Brand;
 class AdminController extends Controller
 {
     public function __construct(){
@@ -24,5 +25,11 @@ class AdminController extends Controller
     public function search(Request $request){
       $products = Product::where('name', 'like', '%' . $request->search . '%')->orWhere('description', 'like', '%' . $request->search . '%')->paginate(12);
        return view('admin.search')->withProducts($products);
+    }
+    public function brandProducts($id){
+      $products = Product::where('brand_id', $id)->paginate(12);
+      $brand = Brand::find($id);
+      //return to view.
+      return view('admin.brandProducts')->withProducts($products)->withBrand($brand);
     }
 }
